@@ -6,6 +6,7 @@
     <title>Pokeameame</title>
     <meta name="description" content="Poke Ame Ame" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
     <link rel="stylesheet" href="css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -32,41 +33,7 @@
         align-items: center;
         height: 60px;
     }
-    .logo a img {
-        max-width: 100%;
-        max-height: 60px;
-    }
-    td{
-        text-transform: capitalize;
-    }
-    th{
-        text-transform: capitalize;
-    }
 
-    a,h1,h2,h3,h4,h5,p,li{
-        text-transform: capitalize;
-    }
-    a{
-        font-size: 25px;
-        text-align: center;
-    }
-    #poke-container {
-        margin: auto;
-        width: 100%;
-        padding: 10px;
-    }
-    li{
-        background-color: #007bff;
-        color:white;
-        border-radius:3px;
-        padding: 10px;
-        display: inline-flex;
-        margin-right: 3%;
-
-    }
-    ul{
-        text-align: center;
-    }
 
 </style>
 <body>
@@ -80,8 +47,8 @@
     </div>
 </nav>
 
+    <div id="status"></div>
     <h3 class="center-align">Gotta Catch ’Em All!</h3>
-
     <div class="container">
         <div id="poke-container" class="ui cards">
         </div>
@@ -89,9 +56,11 @@
 
     <script src="js/materialize.min.js"></script>
     <script src="js/api.js"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+            fetchStatusOnline();
             fetchAllPokemon();
         });
     </script>

@@ -19,6 +19,20 @@ function error(error) {
     console.log("Error : " + error);
 }
 
+function fetchStatusOnline(){
+    window.addEventListener('load', function() {
+        var status = document.getElementById("status");
+        function updateOnlineStatus(event) {
+            var condition = navigator.onLine ? "online" : "offline";
+            status.className = condition;
+            status.innerHTML = condition.toUpperCase();
+        }
+        window.addEventListener('online',  updateOnlineStatus);
+        window.addEventListener('offline', updateOnlineStatus);
+    });
+
+}
+
 function fetchAllPokemon(){
     fetch('https://pokeapi.co/api/v2/pokemon??offset=0&limit=151')
         .then(response => response.json())

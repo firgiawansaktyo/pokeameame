@@ -1,0 +1,107 @@
+.logo a {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 60px;
+}
+.logo a img {
+    max-width: 100%;
+    max-height: 60px;
+}
+   .card .card-image img {
+    display:inline;
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    align-content: center;
+    width: 100%;
+}
+.card .card-image .card-title {
+    text-align: center;
+    position: relative;
+    padding: 0;
+    margin-top: 0px;
+    text-transform: capitalize;
+}
+td{
+    text-transform: capitalize;
+}
+th{
+    text-transform: capitalize;
+}
+span{
+    text-transform: capitalize;
+}
+
+a,h1,h2,h3,h4,h5,p,li{
+    text-transform: capitalize;
+}
+a{
+    font-size: 25px;
+    text-align: center;
+}
+#poke-container {
+    margin: auto;
+    width: 100%;
+    padding: 10px;
+}
+li{
+    background-color: #007bff;
+    color:white;
+    border-radius:3px;
+    padding: 10px;
+    display: inline-flex;
+    margin-right: 3%;
+
+}
+ul{
+    text-align: center;
+}
+
+.online {
+    background: rgba(80, 171, 80, 0.78);
+    -moz-animation: cssAnimation 0s ease-in 5s forwards;
+    /* Firefox */
+    -webkit-animation: cssAnimation 0s ease-in 5s forwards;
+    /* Safari and Chrome */
+    -o-animation: cssAnimation 0s ease-in 5s forwards;
+    /* Opera */
+    animation: cssAnimation 0s ease-in 5s forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    height: 30px;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    padding: 5px;
+}
+@keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+    }
+}
+@-webkit-keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+    }
+}
+
+.offline {
+    background: #ff0000cf;
+    height: 30px;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    padding: 5px;
+}
