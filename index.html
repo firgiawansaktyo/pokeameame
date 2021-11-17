@@ -11,7 +11,17 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <style>
-    .logo a {
+    @media screen and (max-width: 600px) {
+        nav .nav-title {
+            display: none;
+        }
+    }
+    @media screen and (min-width: 600px) {
+        .logo a {
+            top: -20px;
+            }
+    }
+        .logo a {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -63,7 +73,9 @@
 
 <nav role="navigation">
     <div class="nav-wrapper container logo">
-        <a href="index.html" class="brand-logo" id="logo-container"><img src="icon-pokemon.png" width="65px" height="65px" style="padding: 10px;"/>Pokeameame</a>
+        <a href="index.html" class="brand-logo" id="logo-container"><img src="icon-pokemon.png" width="65px" height="65px" style="padding: 10px;"/>
+            <p class="nav-title">Pokeameame</p>
+        </a>
         <ul class="topnav right hide-on-med-and-down"></ul>
     </div>
 </nav>
