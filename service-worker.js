@@ -1,6 +1,5 @@
 const CACHE_NAME = "pokeameame"
 var urlsToCache = [
-    "/",
     "/index.html",
     "/detailPokemon.html",
     "/css/materialize.min.css",
@@ -23,12 +22,8 @@ self.addEventListener("fetch", function(event){
             .match(event.request, {cacheName: CACHE_NAME})
             .then(function (response) {
                 if(response){
-                    console.log("ServiceWorker: Using asset from cache : ", response.url);
                     return response;
                 }
-
-                console.log("ServiceWorker: Request asset from server: ", event.request.url);
-
                 return fetch(event.request)
             })
     );
@@ -40,7 +35,6 @@ self.addEventListener("activate", function (event) {
             return Promise.all(
                 cacheNames.map(function (cacheName) {
                     if (cacheName != CACHE_NAME){
-                        console.log("ServiceWorker: cache " + cacheName + " dihapus");
                         return caches.delete(cacheName)
                     }
                 })

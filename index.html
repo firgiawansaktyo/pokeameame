@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="manifest" href="./manifest.json">
     <meta charset="UTF-8">
     <meta name="theme-color" content="#00897B"/>
-    <title>Pokemon PWA</title>
-    <meta name="description" content="Pokemon Ame Ame" />
+    <title>Pokeameame</title>
+    <meta name="description" content="Poke Ame Ame" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
     <link rel="stylesheet" href="css/materialize.min.css">
@@ -80,20 +79,6 @@
     <script src="js/api.js"></script>
 
     <script>
-        if("serviceWorker" in navigator){
-            window.addEventListener("load", function(){
-                navigator.serviceWorker.register("/service-worker.js")
-                    .then(function(){
-                        console.log("Pendaftaran ServiceWorker berhasil");
-                    })
-                    .catch(function(){
-                        console.log("Pendaftaran ServiceWorker gagal");
-                    });
-            });
-        } else{
-            console.log("ServiceWorker belum didukung browser ini.");
-        }
-
         document.addEventListener("DOMContentLoaded", function () {
             fetchAllPokemon();
         });

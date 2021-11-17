@@ -1,11 +1,4 @@
 var base_url = "https://pokeapi.co/api/v2/";
-var state = {
-    'querySet': tableData,
-
-    'page': 1,
-    'rows': 10,
-    'window': 10,
-}
 
 
 function status(response) {
@@ -37,43 +30,27 @@ function fetchAllPokemon(){
 }
 
 function getAllPokemon(pokemon) {
-    // if ('caches' in window) {
-    //     caches.match(base_url + "pokemon")
-    //         .then(function (response) {
-    //             if (response) {
-    //                 response.json()
-    //                     .then(function (data) {
-    //                         var pokemonHTML = "";
-    //                         data.results.forEach(function (pokemon) {
-    //                             pokemonHTML += `
-    //                                 <ul class="collection with-header">
-    //                                   <li class="collection-item">
-    //                                     <div>
-    //                                         ${pokemon.name}
-    //                                         <a href="detailPokemon.html?name=${pokemon.name}">
-    //                                             <span class="right">
-    //                                                 Go to detail
-    //                                                 <i class="material-icons right">navigate_next</i>
-    //                                             </span>
-    //                                         </a>
-    //                                     </div>
-    //                                   </li>
-    //                                 </ul>
-    //                             `;
-    //                         });
-    //                         document.getElementById("pokemons").innerHTML = pokemonHTML;
-    //                     }).catch(error);
-    //             }
-    //         })
-    // } else {
-    //     event.respondWith(
-    //         caches.match(event.request, {ignoreSearch: true})
-    //             .then(function (response) {
-    //                 return response || fetch(event.request);
-    //             })
-    //     )
-    // }
     let url = pokemon.url
+
+    if ('caches' in window) {
+        caches.match(url)
+            .then(function (response) {
+                if (response) {
+                    response.json()
+                        .then(function(pokeData){
+                            renderPokemon(pokeData)
+                        }).catch(error);
+                }
+            })
+    } else {
+        event.respondWith(
+            caches.match(event.request, {ignoreSearch: true})
+                .then(function (response) {
+                    return response || fetch(event.request);
+                })
+        )
+    }
+
     fetch(url)
         .then(status)
         .then(response => response.json())
