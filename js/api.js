@@ -1,6 +1,5 @@
 var base_url = "https://pokeapi.co/api/v2/";
 
-
 function status(response) {
     if (response.status !== 200) {
         console.log("Error : " + response.status);
@@ -34,7 +33,8 @@ function fetchStatusOnline(){
 }
 
 function fetchAllPokemon(){
-    fetch('https://pokeapi.co/api/v2/pokemon??offset=0&limit=151')
+    const API_URL = base_url + "pokemon?" + `limit=6` ;
+    fetch(API_URL)
         .then(response => response.json())
         .then(function(allpokemon){
             allpokemon.results.forEach(function(pokemon){
@@ -98,6 +98,17 @@ function renderPokemon(pokeData){
     allPokemonContainer.appendChild(pokeContainer);
 }
 
+function fetchMorePokemon(offset){
+    const API_URL = base_url + "pokemon?" + `limit=6` + "&" + `offset=${offset}` ;
+    fetch(API_URL)
+        .then(response => response.json())
+        .then(function(allpokemon){
+            allpokemon.results.forEach(function(pokemon){
+                getAllPokemon(pokemon);
+            })
+        })
+}
+
 function createTypes(types, ul){
     types.forEach(function(type){
         let typeSpan = document.createElement('li');
@@ -159,4 +170,5 @@ function getDetailPokemonByName() {
         })
         .catch(error);
 }
+
 
