@@ -80,7 +80,7 @@ ul{
     color: white;
     font-size: 20px;
     text-align: center;
-    padding: 5px;
+    padding-top: 5px;
 }
 @keyframes cssAnimation {
     to {
@@ -103,5 +103,5 @@ ul{
     color: white;
     font-size: 20px;
     text-align: center;
-    padding: 5px;
+    padding-top: 5px;
 }
